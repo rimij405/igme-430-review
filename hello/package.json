@@ -1,0 +1,23 @@
+{
+    "name": "hello",
+    "version": "1.0.0",
+    "engines": {
+        "node": "12.13.x",
+        "npm": "6.12.x"
+    },
+    "description": "Example project for setting up a new node project.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./index.js",
+        "test": "echo \"No Tests\""
+    },
+    "keywords": [
+        "430",
+        "week1"
+    ],
+    "author": "Ian Effendi",
+    "license": "MIT",
+    "dependencies": {
+        "shortid": "^2.2.15"
+    }
+}
