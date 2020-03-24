@@ -1,0 +1,14 @@
+<h1>{{pageTitle}}</h1>
+<p><a href="/">Home Page</a></p>
+<p><a href="/other">Other Page</a></p>
+
+<div>
+    <h3>Game Companies</h3>
+    <ul>
+    {{#each companies}}
+        {{#with this}}
+            <li><a href="{{url}}">{{name}}</a></li>
+        {{/with}}
+    {{/each}}
+    </ul>
+</div>

@@ -1,0 +1,19 @@
+<h1>{{pageHeading}}</h1>
+<p><a href="/">Home Page</a></p>
+<p><a href="/favorites">Favorites</a></p>
+
+<div>
+    <h3>Colors</h3>
+    <ol>
+        {{#each colors}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ol>
+</div>
+
+<div>
+    <h3>Person</h3>
+    {{#with person}}
+    <p>Name: {{name}}, Age: {{age}}</p>
+    {{/with}}
+</div>

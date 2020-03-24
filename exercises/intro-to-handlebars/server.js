@@ -17,7 +17,7 @@ Reference:
 
 // 1 - import stuff
 const express = require('express');
-const exphbs  = require('express-handlebars');
+const handlebars  = require('express-handlebars');
 const app = express();
 
 // 2 - set the "template engine"
@@ -25,7 +25,7 @@ const app = express();
 // here it will  use a layout by default (a layout is a "super template")
 // A layout is simply a Handlebars template with a {{{body}}} placeholder. 
 // Usually it will be an HTML page wrapper into which views will be rendered.
-app.engine('handlebars', exphbs());
+app.engine('handlebars', handlebars());
 
 // 3 - Setting the app's "view engine" setting will make that value 
 // the default file extension used for looking up views
@@ -39,7 +39,36 @@ app.get('/', function (req, res) {
   // calling res.render('home')
   // actually calls home.handlebars
   // https://expressjs.com/en/api.html#res.render
-  res.render('home');
+  res.render('home', {
+    'pageHeading': "Main Page",
+    'siteTitle': "Intro to Handlebars"
+  });
+});
+
+// Other page.
+app.get('/other', function(req, res) {
+  res.render('other', {
+    'pageHeading': "Other Page",
+    'siteTitle': "Intro to Handlebars",
+    'colors': [ 'red', 'green', 'blue' ],
+    'person': {
+      'name': 'Festus',
+      'age': 99
+    }
+  });
+});
+
+// Favorites page.
+app.get('/favorites', function(req, res){
+  res.render('favorites', {
+    'pageTitle': "Favorites",
+    'siteTitle': "Intro to Handlebars",
+    'companies': [
+      { 'name': "Nintendo", 'url': "https://www.nintendo.com/" },
+      { 'name': "Insomniac Games", 'url': "https://insomniac.games/" },
+      { 'name': "Respawn Entertainment", 'url': "https://www.respawn.com/" },
+      { 'name': "Ubisoft", 'url': "https://www.ubisoft.com/en-us/" }    ]
+  });
 });
 
 // 5 - start listening
