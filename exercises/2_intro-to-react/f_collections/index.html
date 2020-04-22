@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Introduction</title>
+        <script crossorigin src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
+        <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <!-- Remember to use text/babel for transforming JSX into valid JS -->
+        <!-- className vs class since class is reserved -->
+
+        <script type="text/babel">
+        
+            const Lake = ({name}) => <h1>{name}</h1>
+            const SkiResort = ({name}) => <h1>{name}</h1>;
+
+            const lakeList = [
+                "Echo Lake",
+                "Maud Lake",
+                "Cascade Lake",
+            ];
+
+            /* React lists require keys! */
+
+            const App = ({lakes}) => (
+                <ul>
+                    {lakes.map((element, index) =>
+                        <li key={index}>{element}</li>
+                    )}
+                </ul>
+            );
+
+            ReactDOM.render(
+                <App lakes={lakeList} />,
+                document.getElementById("root")
+            );
+        </script>
+    </body>
+</html>
