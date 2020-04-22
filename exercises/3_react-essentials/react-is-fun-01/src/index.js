@@ -8,19 +8,23 @@ const bookList = [
   {"title": "Cat's Cradle", "author": "Kurt Vonnegut", "pages": 304 }
 ];
 
-const Book = ({title, author, pages}) => {
+const Book = ({title, author, pages, freeBookmark}) => {
   return (
     <section>
       <h2>{title}</h2>
       <p>by: {author}</p>
       <p>Pages: {pages} page</p>
+      <p>Free Bookmark Today: {freeBookmark ? 'yes' : 'no!'}</p>
     </section>
   );
 };
 
 class Library extends Component {
 
-  state = { open: false }
+  state = { 
+    freeBookmark: true,
+    open: true
+  }
 
   toggle = () => {
     this.setState(prevState => ({
@@ -37,7 +41,12 @@ class Library extends Component {
         <button onClick={this.toggle}>Change</button>
         {books.map((book, id) => {
           return(
-            <Book key={id} title={book.title} author={book.author} pages={book.pages} />
+            <Book 
+             key={id} 
+             title={book.title} 
+             author={book.author}
+             pages={book.pages} 
+             freeBookmark={this.state.freeBookmark} />
           );
         })} 
       </div>
