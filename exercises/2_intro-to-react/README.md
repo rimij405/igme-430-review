@@ -5,3 +5,7 @@ Work regarding introduction to React. Based off of the course, "[Learning React.
 Notes:
 
 - Uses a different version of React from the course material.
+
+Exercises:
+
+1. [Introduction to React](a_intro-to-react)
